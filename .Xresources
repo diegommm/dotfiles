@@ -1,0 +1,66 @@
+! This file should be ~/.Xresources
+! Run `xrdb -merge ~/.Xresources` after installing or modifying this file
+
+! ----- colors -------------------------------------------------------------- !
+
+! special
+*.foreground:   #d5d8d6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+! red
+*.color1:       #a54242
+*.color9:       #cc6666
+! green
+*.color2:       #8c9440
+*.color10:      #b5bd68
+! yellow
+*.color3:       #de935f
+*.color11:      #f0c674
+! blue
+*.color4:       #5f819d
+*.color12:      #81a2be
+! magenta
+*.color5:       #85678f
+*.color13:      #b294bb
+! cyan
+*.color6:       #5e8d87
+*.color14:      #8abeb7
+! white
+*.color7:       #707880
+*.color15:      #c5c8c6
+
+! ----- fonts --------------------------------------------------------------- !
+
+*faceName: Droid Sans Mono:antialias=true
+*faceSize: 12
+*renderFont: true
+
+! ----- xterm --------------------------------------------------------------- !
+
+XTerm*translations: #override \
+	Shift <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY)  select-start() select-end() \n\
+	Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+XTerm*utf8: 1
+xterm*scrollTtyOutput: false
+XTerm*SaveLines: 8192
+XTerm*ScrollBar: false
+XTerm*visualbell: true
+XTerm*termName: xterm-256color
+XTerm*cutNewline: false
+XTerm*cutToBeginningOfLine: true
+XTerm*charClass: 35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
+XTerm*on2Clicks: word
+XTerm*on3Clicks: line
+
+! When writing regexes in .Xresources remember to escape backslashes.
+
+! URL matching regex
+!   (([^[:blank:]:/?#]+):)?(//([^[:blank:]/?#]*))?([^[:blank:]?#]*)(\\?([^[:blank:]#]*))?(#([^[:blank:]]*))?
+
+XTerm*on4Clicks: regex (([^[:blank:]:/?#]+):)?(//([^[:blank:]/?#]*))?([^[:blank:]?#]*)(\\?([^[:blank:]#]*))?(#([^[:blank:]]*))?
+
+

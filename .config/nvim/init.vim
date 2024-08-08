@@ -26,11 +26,11 @@ syntax on
 colorscheme challenger_deep
 
 highlight Normal NONE
-highlight Normal ctermfg=253 ctermbg=0
+highlight Normal ctermfg=253 ctermbg=233
 
 
 highlight clear CursorColumn
-highlight       CursorColumn ctermbg=233
+highlight       CursorColumn ctermbg=0
 highlight clear ColorColumn
 highlight link  ColorColumn CursorColumn
 highlight clear CursorLine
@@ -78,7 +78,7 @@ highlight clear SignColumn
 
 "highlight StatusLine                        ctermbg=52  ctermfg=214
 "highlight StatusLineNC                      ctermbg=235 ctermfg=214
-"highlight LineNR                            ctermbg=233 ctermfg=239
+"highlight LineNR                            ctermbg=0   ctermfg=239
 "highlight CursorLineNr                      ctermbg=214 ctermfg=52
 "highlight MatchParen        cterm=none      ctermbg=256 ctermfg=214
 
