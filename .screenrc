@@ -1,0 +1,28 @@
+vbell on
+vbell_msg '!Bell!'
+autodetach on
+
+
+startup_message off
+defscrollback 100000
+altscreen on
+#term screen-256color
+#defbce "on"
+
+# Termcapinfo for xterm
+#termcapinfo xterm* Z0=E[?3h:Z1=E[?3l:is=E[rE[mE[2JE[HE[?7hE[?1;4;6l # Do not resize window
+#termcapinfo xterm* OL=1000 # Increase output buffer for speed
+
+# Remove various keyboard bindings
+bind x # Do not lock screen
+bind ^x # Idem
+bind h # Do not write out copy of screen to disk
+bind ^h # Idem
+bind ^ # Do not kill all windows/exit screen
+bind . # Disable dumptermcap
+
+#truecolors on
+#attrcolor b ".I"    # allow bold colors - necessary for some reason
+#termcapinfo xterm* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'   # tell screen how to set colors. AB = background, AF=foreground
+#defbce on    # use current bg color for erased chars
+
