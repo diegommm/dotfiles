@@ -9,13 +9,13 @@ ORG=${1:?}
 list(){
     # 1. Go to https://github.com/orgs/$ORG/repositories
     # 2. Open the network tab in dev console
-    # 3. Make the following search mirror:false fork:false archived:false sort=updated
+    # 3. Make the following search: `mirror:false fork:false archived:false sort:updated`
     # 4. Copy as cURL the resulting API call and use it to replace the line below these comments
     # 5. Change the `page=1'` part of the URL with `page='$1`
     #curly commandy :)
 }
 
-cd ~/go/srg/github.com
+cd ~/go/src/github.com
 mkdir -p $ORG
 cd $ORG
 
