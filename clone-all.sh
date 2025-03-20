@@ -4,7 +4,7 @@
 
 set -e
 
-ORG=${1:?}
+ORG="${1:?Expecting GitHub Org handle as first arg}";
 
 list(){
     # 1. Go to https://github.com/orgs/$ORG/repositories
@@ -15,19 +15,33 @@ list(){
     #curly commandy :)
 }
 
-cd ~/go/src/github.com
-mkdir -p $ORG
-cd $ORG
+cd ~/go/src/github.com;
+mkdir -p "${ORG}";
+cd "${ORG}";
 
-rm -f page-*.json
+rm -f repos-page-*.json;
 
-for x in $(seq 1 41); do
-    list $x 2> /dev/null > page-$x.json || echo failed page $x
+x=1;
+while true; do
+    xx="${x}";
+    if [[ "${x}" -lt 100 ]]; then
+        xx="0${xx}";
+        if [[ "${x}" -lt 10 ]]; then
+            xx="0${xx}";
+        fi;
+    fi;
+    if list "${x}" 2> /dev/null > "repos-page-${xx}.json"; then
+        if ! jq -r '.repositories[] | .name' "repos-page-${xx}.json" | grep -q .; then
+            rm -f "repos-page-${xx}.json";
+            break;
+        fi;
+    else
+        echo "failed page ${x}";
+    fi;
+    x=$(( 1 + x ));
 done;
 
-for x in page-[1-9].json; do mv $x page-0${x//*-}; done
-
-jq -r '.repositories[] | .name' page-*.json |
-    while read x; do
-        [ -e "$x" ] || git clone git@github.com:$ORG/$x.git || true
+jq -r '.repositories[] | .name' repos-page-*.json |
+    while read -r x; do
+        [[ -e "${x}" ]] || git clone "git@github.com:${ORG}/${x}.git" || true
     done
