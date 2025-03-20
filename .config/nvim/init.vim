@@ -112,6 +112,10 @@ set nowrap
 
 autocmd BufEnter *.go setlocal textwidth=80
 
+if $LC_TERMINAL == "iTerm2"
+    " workaround for iTerm2 on Mac
+    set notermguicolors
+endif
 
 
 
