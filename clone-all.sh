@@ -31,7 +31,7 @@ while true; do
         fi;
     fi;
     if list "${x}" 2> /dev/null > "repos-page-${xx}.json"; then
-        if ! jq -r '.repositories[] | .name' "repos-page-${xx}.json" | grep -q .; then
+        if ! jq -r '.payload.orgReposPageRoute.repositories[] | .name' "repos-page-${xx}.json" | grep -q .; then
             rm -f "repos-page-${xx}.json";
             break;
         fi;
@@ -41,7 +41,7 @@ while true; do
     x=$(( 1 + x ));
 done;
 
-jq -r '.repositories[] | .name' repos-page-*.json |
+jq -r '.payload.orgReposPageRoute.repositories[] | .name' repos-page-*.json |
     while read -r x; do
         [[ -e "${x}" ]] || git clone "git@github.com:${ORG}/${x}.git" || true
     done
