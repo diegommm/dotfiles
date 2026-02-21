@@ -112,10 +112,8 @@ set nowrap
 
 autocmd BufEnter *.go setlocal textwidth=80
 
-if $LC_TERMINAL == "iTerm2"
-    " workaround for iTerm2 on Mac
-    set notermguicolors
-endif
+" Only use 256 color
+set notermguicolors
 
 
 
@@ -411,3 +409,5 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+let g:tagbar_show_visibility = 0
+let g:tagbar_indent = 0

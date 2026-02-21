@@ -1,0 +1,32 @@
+# See: https://alacritty.org/config-alacritty.html
+
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+title = "Alacritty @ diegommm"
+dynamic_title = false
+
+[scrolling]
+history = 0
+multiplier = 1
+
+[selection]
+#semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard = true # copy on selection
+
+[mouse]
+bindings = [
+  # Paste on right-click
+  { mouse = "Right", action = "Paste" }
+]
+
+[keyboard]
+bindings = [
+  # Option+Left  -> backward-word
+  { key = "Left",  mods = "Alt", chars = "\u001bb" },
+  # Option+Right -> forward-word
+  { key = "Right", mods = "Alt", chars = "\u001bf" },
+]
+
+[env]
+COLORTERM = ""
