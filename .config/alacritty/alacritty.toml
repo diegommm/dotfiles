@@ -11,7 +11,7 @@ history = 0
 multiplier = 1
 
 [selection]
-#semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t="
 save_to_clipboard = true # copy on selection
 
 [mouse]
